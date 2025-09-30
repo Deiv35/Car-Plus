@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <title>Login</title>
   <style>
+    /* Estilos generales modo oscuro */
     body {
       margin: 0;
       padding: 0;
@@ -66,8 +67,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-      width: 320px;
+      width: 340px;
       text-align: center;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 15px;
     }
 
     h2 {
@@ -127,6 +133,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
   <div class="login-container">
+    <!-- Logo -->
+    <img src="logo.png" alt="Logo Auto Parts" class="logo">
+
     <h2>Iniciar Sesión</h2>
 
     <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
@@ -143,3 +152,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 </body>
 </html>
+
