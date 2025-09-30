@@ -46,20 +46,100 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: #2a2a2a;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      width: 320px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #ff3b3b;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #3b3b3b;
+      color: #f0f0f0;
+      font-size: 14px;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      background-color: #444;
+      border: 1px solid #ff3b3b;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff3b3b;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #cc2e2e;
+    }
+
+    .error {
+      margin-bottom: 15px;
+      color: #ff4d4d;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
+  <div class="login-container">
     <h2>Iniciar Sesión</h2>
-    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+
+    <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
+
     <form method="POST" action="Index.php">
-        <label>Usuario:</label>
-        <input type="text" name="usuario" required><br><br>
-        
-        <label>Contraseña:</label>
-        <input type="password" name="contrasena" required><br><br>
-        
-        <input type="submit" value="Ingresar">
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" name="usuario" required>
+
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena" required>
+
+      <input type="submit" value="Ingresar">
     </form>
+  </div>
 </body>
 </html>
